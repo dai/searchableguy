@@ -1,0 +1,16 @@
+{
+  "hackernews": {
+    "top": "https://hnrss.org/frontpage",
+    "show": "https://hnrss.org/show",
+    "ask": "https://hnrss.org/ask"
+  },
+  "reddit": {
+    "programming": "https://reddit.0qz.fun/r/programming.json",
+    "deno": "https://reddit.0qz.fun/r/deno.json",
+    "elixir": "https://reddit.0qz.fun/r/elixir.json"
+  },
+  "lobster": "https://lobste.rs/rss",
+  "github": {
+    "trending": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml"
+  }
+}

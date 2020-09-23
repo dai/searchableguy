@@ -1,0 +1,34 @@
+name: CI publish
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  push:
+    branches:
+      - dev
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Generate README.md
+        uses: searchableguy/profile-readme@add-feed-widget
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          username: searchableguy
+          feed: "FEEDS.json"
+          template: "TEMPLATE.md"
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          coauthor_email: 60404136+searchableguy@users.noreply.github.com
+          coauthor_name: searchableguy
+          branch: dev
